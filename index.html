@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Главная</title>
+	<title>Калькулятор (версия 2)</title>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<!-- <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/svg+xml"> -->
@@ -17,256 +16,397 @@
 	<meta name="msapplication-TileColor" content="#000">
 	<meta name="apple-mobile-web-app-status-bar-style" content="#fff">
 
-	<link rel="stylesheet" href="./assets/css/libs/swiper-bundle.min.css">
 	<link rel="stylesheet" href="./assets/css/demo-calc.min.css">
 </head>
 <body>
 
-	<main class="dcalc">
-		<section class="dcalc__wrap">
-			<h1 class="dcalc__title">Калькулятор <strong>(демо-версия)</strong></h1>
+	<main class="calc">
+		<section class="calc__wrap">
+			<h1 class="calc__title">Калькулятор <strong>(версия&nbsp;2)</strong></h1>
 
-			<ul class="dcalc__list dcalc__list--steps">
-				<li class="dcalc__step">
-					<div class="dcalc__part dcalc__part--controls">
-						<h2 class="dcalc__name">Стандартные сваи</h2>
-						<div class="switch dcalc__switch" aria-label="Включить в расчёт">
-	<input class="switch__input" type="checkbox">
-	<div class="switch__button">
-		<div class="switch__inside">
-			<svg class="switch__icon switch__icon--off" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-				<path fill-rule="evenodd" clip-rule="evenodd" d="M8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z"></path>
-			</svg>
+			<ul class="calc__block">
+				<li class="calc__block-item">
+					<h2 class="calc__name">Стандартные сваи</h2>
+					<button class="calc__burger" type="button" aria-label="Открыть список добавленных" disabled>
+						<span class="calc__burger-line" aria-hidden="true"></span>
+					</button>
 
-			<svg class="switch__icon switch__icon--on" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-				<rect x="2" y="7" width="12" height="2" rx="1"></rect>
-			</svg>
-		</div>
-	</div>
-</div>
-					</div>
+					<button class="calc__switch switch" type="button" aria-label="Вкл." data-spoiler-button="Вкл|Выкл">
+						<strong class="switch__button">
+							<span class="switch__inside">
+								<svg class="switch__icon switch__icon--off" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z"></path>
+								</svg>
 
-					<div class="dcalc__part dcalc__part--content is-active">
-						<input class="dcalc__search" type="search" placeholder="Поиск сваи..">
+								<svg class="switch__icon switch__icon--on" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+									<rect x="2" y="7" width="12" height="2" rx="1"></rect>
+								</svg>
+							</span>
+						</strong>
+					</button>
 
-						<div class="dcalc__slider swiper" data-swiper-slider="dcalc">
-							<div class="dcalc__line swiper-wrapper">
-								<div class="dcalc__card swiper-slide">
-									<h3 class="dcalc__card-name" data-article-number="0123456789">Свая абвгд&nbsp;#12</h3>
-									
-									<div class='controls dcalc__card-controls' data-settings='1:1150|1.5:1350|2:1550|2.5:1800|3:2150|3.5:3650|4:3975|4.5:4325|5:4625'>
-	<div class="controls__range" aria-label="Длина (м):"></div>
-	<div class="controls__counter" aria-label="Количество (шт):">
-		<input class="controls__counter-input" placeholder="1" value="1">
-	</div>
-</div>
+					<div class="calc__content is-open" data-spoiler>
+						<button class="calc__content-result is-active" type="button" data-spoiler-button>Добавлено 0шт. на&nbsp;сумму 0₽</button>
 
-<output class="dcalc__card-sum">0</output>
-<button class="dcalc__card-button" type="button">Выбрать</button>
-								</div>
+						<div class="calc__content-block" data-spoiler>
+							<div class="calc__part calc__part--list">
+								<input class="calc__search" type="search" placeholder="Поиск..">
 
-								<div class="dcalc__card swiper-slide">
-									<h3 class="dcalc__card-name" data-article-number="9876543210">Свая еёжз&nbsp;#21</h3>
-									
-									<div class='controls dcalc__card-controls' data-settings='1.5:2475|2:2900|2.5:3350|3:3850|3.5:4375|4:4875|4.5:5325|5:5725'>
-	<div class="controls__range" aria-label="Длина (м):"></div>
-	<div class="controls__counter" aria-label="Количество (шт):">
-		<input class="controls__counter-input" placeholder="1" value="1">
-	</div>
-</div>
+								<div class="calc__part-block">
+									<ol class="calc__list">
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="0123456789">Свая абвгд&nbsp;#12</h3>
 
-<output class="dcalc__card-sum">0</output>
-<button class="dcalc__card-button" type="button">Выбрать</button>
-								</div>
+											<p class="calc__list-sum">1150</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
 
-								<div class="dcalc__card swiper-slide">
-									<h3 class="dcalc__card-name" data-article-number="1325496878">Свая ийкл&nbsp;#34</h3>
-									
-									<div class='controls dcalc__card-controls' data-settings='1.5:2700|2:3200|2.5:3700|3:4275|3.5:4875|4:5450|4.5:6050|5:6650|5.5:7125|6:7700'>
-	<div class="controls__range" aria-label="Длина (м):"></div>
-	<div class="controls__counter" aria-label="Количество (шт):">
-		<input class="controls__counter-input" placeholder="1" value="1">
-	</div>
-</div>
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="9876543210">Свая еёжз&nbsp;#21</h3>
 
-<output class="dcalc__card-sum">0</output>
-<button class="dcalc__card-button" type="button">Выбрать</button>
-								</div>
+											<p class="calc__list-sum">2475</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
 
-								<div class="dcalc__card swiper-slide">
-									<h3 class="dcalc__card-name" data-article-number="1887987863">Свая мноп&nbsp;#432</h3>
-									
-									<div class='controls dcalc__card-controls' data-settings='1.5:3250|2:3875|2.5:4500|3:5275|3.5:6000|4:6725|4.5:7450|5:8175|5.5:8850|6:9475'>
-	<div class="controls__range" aria-label="Длина (м):"></div>
-	<div class="controls__counter" aria-label="Количество (шт):">
-		<input class="controls__counter-input" placeholder="1" value="1">
-	</div>
-</div>
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="1325496878">Свая ийкл&nbsp;#34</h3>
 
-<output class="dcalc__card-sum">0</output>
-<button class="dcalc__card-button" type="button">Выбрать</button>
+											<p class="calc__list-sum">2700</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
+
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="1887987863">Свая мноп&nbsp;#432</h3>
+
+											<p class="calc__list-sum">3250</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
+
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="4565688425">Свая первая</h3>
+
+											<p class="calc__list-sum">1350</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
+
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="0125456789">Свая вторая</h3>
+
+											<p class="calc__list-sum">2900</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
+
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="9876565410">Свая третья</h3>
+
+											<p class="calc__list-sum">3200</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
+
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="1333496878">Свая четвертая</h3>
+
+											<p class="calc__list-sum">3875</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
+
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="1887987111">Свая пятая</h3>
+
+											<p class="calc__list-sum">7700</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
+
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="4547688425">Свая шестая</h3>
+
+											<p class="calc__list-sum">9475</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
+									</ol>
 								</div>
 							</div>
 
-							<div class="dcalc__scrollbar swiper-scrollbar"></div>
+							<div class="calc__part calc__part--output">
+								<ul class="calc__added">
+									<li class="calc__added-item calc__added-item--empty" aria-label="Список пуст =(">
+										<svg aria-hidden="true"><use xlink:href="#no-product" x="0" y="0"></use></svg>
+									</li>
+								</ul>
+							</div>
 						</div>
-
-						<ul class="dcalc__list dcalc__list--selected" aria-label="Выбранные сваи">
-							<li class="dcalc__item dcalc__item--empty">Нет выбранных..</li>
-						</ul>
 					</div>
 				</li>
 
-				<li class="dcalc__step">
-					<div class="dcalc__part dcalc__part--controls">
-						<h2 class="dcalc__name">Нестандартные сваи</h2>
-						<div class="switch dcalc__switch" aria-label="Включить в расчёт">
-	<input class="switch__input" type="checkbox">
-	<div class="switch__button">
-		<div class="switch__inside">
-			<svg class="switch__icon switch__icon--off" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-				<path fill-rule="evenodd" clip-rule="evenodd" d="M8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z"></path>
-			</svg>
+				<li class="calc__block-item">
+					<h2 class="calc__name">Нестандартные сваи</h2>
+					<button class="calc__button" type="button" aria-label="Создать новую нестандартную сваю" disabled><span>Создать</span></button>
+					<button class="calc__burger" type="button" aria-label="Открыть список добавленных" disabled>
+						<span class="calc__burger-line" aria-hidden="true"></span>
+					</button>
 
-			<svg class="switch__icon switch__icon--on" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-				<rect x="2" y="7" width="12" height="2" rx="1"></rect>
-			</svg>
-		</div>
-	</div>
-</div>
-					</div>
+					<button class="calc__switch switch" type="button" aria-label="Вкл." data-spoiler-button="Вкл|Выкл">
+						<strong class="switch__button">
+							<span class="switch__inside">
+								<svg class="switch__icon switch__icon--off" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z"></path>
+								</svg>
 
-					<div class="dcalc__part dcalc__part--content">
+								<svg class="switch__icon switch__icon--on" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+									<rect x="2" y="7" width="12" height="2" rx="1"></rect>
+								</svg>
+							</span>
+						</strong>
+					</button>
 
-					</div>
-				</li>
+					<div class="calc__content is-open" data-spoiler>
+						<button class="calc__content-result is-active" type="button" data-spoiler-button>Добавлено 0шт. на&nbsp;сумму 0₽</button>
 
-				<li class="dcalc__step">
-					<div class="dcalc__part dcalc__part--controls">
-						<h2 class="dcalc__name">Оголовки</h2>
-						<div class="switch dcalc__switch" aria-label="Включить в расчёт">
-	<input class="switch__input" type="checkbox">
-	<div class="switch__button">
-		<div class="switch__inside">
-			<svg class="switch__icon switch__icon--off" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-				<path fill-rule="evenodd" clip-rule="evenodd" d="M8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z"></path>
-			</svg>
+						<div class="calc__content-block" data-spoiler>
+							<div class="calc__part calc__part--list">
+								<input class="calc__search" type="search" placeholder="Поиск..">
 
-			<svg class="switch__icon switch__icon--on" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-				<rect x="2" y="7" width="12" height="2" rx="1"></rect>
-			</svg>
-		</div>
-	</div>
-</div>
-					</div>
+								<div class="calc__part-block">
+									<ol class="calc__list">
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="0123456789">Нестандартная свая&nbsp;#12</h3>
 
-					<div class="dcalc__part dcalc__part--content">
+											<p class="calc__list-sum">2569</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
 
-					</div>
-				</li>
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="9876543210">Нестандартная свая&nbsp;#21</h3>
 
-				<li class="dcalc__step">
-					<div class="dcalc__part dcalc__part--controls">
-						<h2 class="dcalc__name">Доставка</h2>
-						<div class="switch dcalc__switch" aria-label="Включить в расчёт">
-	<input class="switch__input" type="checkbox">
-	<div class="switch__button">
-		<div class="switch__inside">
-			<svg class="switch__icon switch__icon--off" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-				<path fill-rule="evenodd" clip-rule="evenodd" d="M8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z"></path>
-			</svg>
+											<p class="calc__list-sum">3496</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
 
-			<svg class="switch__icon switch__icon--on" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-				<rect x="2" y="7" width="12" height="2" rx="1"></rect>
-			</svg>
-		</div>
-	</div>
-</div>
-					</div>
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="1325496878">Нестандартная свая&nbsp;#34</h3>
 
-					<div class="dcalc__part dcalc__part--content">
+											<p class="calc__list-sum">4105</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
 
-					</div>
-				</li>
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="1887987863">Нестандартная свая&nbsp;#432</h3>
 
-				<li class="dcalc__step">
-					<div class="dcalc__part dcalc__part--controls">
-						<h2 class="dcalc__name">Монтаж</h2>
-						<div class="switch dcalc__switch" aria-label="Включить в расчёт">
-	<input class="switch__input" type="checkbox">
-	<div class="switch__button">
-		<div class="switch__inside">
-			<svg class="switch__icon switch__icon--off" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-				<path fill-rule="evenodd" clip-rule="evenodd" d="M8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z"></path>
-			</svg>
+											<p class="calc__list-sum">6118</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
 
-			<svg class="switch__icon switch__icon--on" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-				<rect x="2" y="7" width="12" height="2" rx="1"></rect>
-			</svg>
-		</div>
-	</div>
-</div>
-					</div>
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="4565688425">Нестандартная свая</h3>
 
-					<div class="dcalc__part dcalc__part--content">
+											<p class="calc__list-sum">8080</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
+									</ol>
+								</div>
+							</div>
 
-					</div>
-				</li>
+							<div class="calc__part calc__part--output">
+								<form class="calc__form">
+									<fieldset class="calc__form-group">
+										<legend class="calc__form-title">Создать новое</legend>
 
-				<li class="dcalc__step">
-					<div class="dcalc__part dcalc__part--controls">
-						<h2 class="dcalc__name">Дополнительные услуги</h2>
-						<div class="switch dcalc__switch" aria-label="Включить в расчёт">
-	<input class="switch__input" type="checkbox">
-	<div class="switch__button">
-		<div class="switch__inside">
-			<svg class="switch__icon switch__icon--off" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-				<path fill-rule="evenodd" clip-rule="evenodd" d="M8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z"></path>
-			</svg>
+										<input class="calc__form-input" name="field-01" placeholder="Название">
+										<input class="calc__form-input" type="number" name="field-02" placeholder="Диаметр ствола, мм" min="1">
+										<input class="calc__form-input" type="number" name="field-03" placeholder="Толщина ствола, мм" min="1">
+										<input class="calc__form-input" type="number" name="field-04" placeholder="Диаметр лопасти, мм" min="1">
+										<input class="calc__form-input" type="number" name="field-05" placeholder="Количество лопастей" min="1">
+										<input class="calc__form-input" type="number" name="field-06" placeholder="Длина сваи, мм" min="1">
+										<input class="calc__form-input" type="number" name="field-07" placeholder="Толщина листа лопасти, мм" min="1">
+									</fieldset>
 
-			<svg class="switch__icon switch__icon--on" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-				<rect x="2" y="7" width="12" height="2" rx="1"></rect>
-			</svg>
-		</div>
-	</div>
-</div>
-					</div>
+									<button class="calc__form-send" type="submit">Создать</button>
+								</form>
 
-					<div class="dcalc__part dcalc__part--content">
-
+								<ul class="calc__added">
+									<li class="calc__added-item calc__added-item--empty" aria-label="Список пуст =(">
+										<svg aria-hidden="true"><use xlink:href="#no-product" x="0" y="0"></use></svg>
+									</li>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</li>
 
-				<li class="dcalc__step">
-					<div class="dcalc__part dcalc__part--controls">
-						<h2 class="dcalc__name">Тип клиента</h2>
-					</div>
+				<li class="calc__block-item">
+					<h2 class="calc__name">Оголовки</h2>
+					<button class="calc__button" type="button" aria-label="Создать новую оголовку" disabled><span>Создать</span></button>
+					<button class="calc__burger" type="button" aria-label="Открыть список добавленных" disabled>
+						<span class="calc__burger-line" aria-hidden="true"></span>
+					</button>
 
-					<div class="dcalc__part dcalc__part--content">
+					<button class="calc__switch switch" type="button" aria-label="Вкл." data-spoiler-button="Вкл|Выкл">
+						<strong class="switch__button">
+							<span class="switch__inside">
+								<svg class="switch__icon switch__icon--off" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z"></path>
+								</svg>
 
+								<svg class="switch__icon switch__icon--on" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+									<rect x="2" y="7" width="12" height="2" rx="1"></rect>
+								</svg>
+							</span>
+						</strong>
+					</button>
+
+					<div class="calc__content is-open" data-spoiler>
+						<button class="calc__content-result is-active" type="button" data-spoiler-button>Добавлено 0шт. на&nbsp;сумму 0₽</button>
+
+						<div class="calc__content-block" data-spoiler>
+							<div class="calc__part calc__part--list">
+								<input class="calc__search" type="search" placeholder="Поиск..">
+
+								<div class="calc__part-block">
+									<ol class="calc__list">
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="0123456789">Оголовки&nbsp;№156</h3>
+
+											<p class="calc__list-sum">5000</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
+
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="9876543210">Оголовки&nbsp;№963</h3>
+
+											<p class="calc__list-sum">8625</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
+
+										<li class="calc__list-item">
+											<h3 class="calc__list-name" data-article-number="1325496878">Оголовки&nbsp;№118</h3>
+
+											<p class="calc__list-sum">9632</p>
+											<input class="calc__list-input" type="number" placeholder="1" value="1" min="1">
+											<button class="calc__list-button" type="button"><span>Добавить</span></button>
+										</li>
+									</ol>
+								</div>
+							</div>
+
+							<div class="calc__part calc__part--output">
+								<form class="calc__form">
+									<fieldset class="calc__form-group">
+										<legend class="calc__form-title">Создать новое</legend>
+
+										<input class="calc__form-input" name="field-01" placeholder="Название">
+										<input class="calc__form-input" type="number" name="field-02" placeholder="Ширина, мм" min="1">
+										<input class="calc__form-input" type="number" name="field-03" placeholder="Длина, мм" min="1">
+										<input class="calc__form-input" type="number" name="field-04" placeholder="Толщина, мм" min="1">
+									</fieldset>
+
+									<button class="calc__form-send" type="submit">Создать</button>
+								</form>
+
+								<ul class="calc__added">
+									<li class="calc__added-item calc__added-item--empty" aria-label="Список пуст =(">
+										<svg aria-hidden="true"><use xlink:href="#no-product" x="0" y="0"></use></svg>
+									</li>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</li>
 
-				<li class="dcalc__step">
-					<div class="dcalc__part dcalc__part--controls">
-						<h2 class="dcalc__name">Тип оплаты</h2>
-					</div>
+				<li class="calc__block-item">
+					<h2 class="calc__name">Доставка</h2>
+					<button class="calc__burger" type="button" aria-label="Открыть список добавленных" disabled>
+						<span class="calc__burger-line" aria-hidden="true"></span>
+					</button>
 
-					<div class="dcalc__part dcalc__part--content">
+					<button class="calc__switch switch" type="button" aria-label="Вкл." data-spoiler-button="Вкл|Выкл">
+						<strong class="switch__button">
+							<span class="switch__inside">
+								<svg class="switch__icon switch__icon--off" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z"></path>
+								</svg>
 
-					</div>
+								<svg class="switch__icon switch__icon--on" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+									<rect x="2" y="7" width="12" height="2" rx="1"></rect>
+								</svg>
+							</span>
+						</strong>
+					</button>
+				</li>
+
+				<li class="calc__block-item">
+					<h2 class="calc__name">Монтаж</h2>
+					<button class="calc__burger" type="button" aria-label="Открыть список добавленных" disabled>
+						<span class="calc__burger-line" aria-hidden="true"></span>
+					</button>
+
+					<button class="calc__switch switch" type="button" aria-label="Вкл." data-spoiler-button="Вкл|Выкл">
+						<strong class="switch__button">
+							<span class="switch__inside">
+								<svg class="switch__icon switch__icon--off" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z"></path>
+								</svg>
+
+								<svg class="switch__icon switch__icon--on" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+									<rect x="2" y="7" width="12" height="2" rx="1"></rect>
+								</svg>
+							</span>
+						</strong>
+					</button>
+				</li>
+
+				<li class="calc__block-item">
+					<h2 class="calc__name">Дополнительные услуги</h2>
+					<button class="calc__burger" type="button" aria-label="Открыть список добавленных" disabled>
+						<span class="calc__burger-line" aria-hidden="true"></span>
+					</button>
+
+					<button class="calc__switch switch" type="button" aria-label="Вкл." data-spoiler-button="Вкл|Выкл">
+						<strong class="switch__button">
+							<span class="switch__inside">
+								<svg class="switch__icon switch__icon--off" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z"></path>
+								</svg>
+
+								<svg class="switch__icon switch__icon--on" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+									<rect x="2" y="7" width="12" height="2" rx="1"></rect>
+								</svg>
+							</span>
+						</strong>
+					</button>
+				</li>
+
+				<li class="calc__block-item">
+					<h2 class="calc__name">Тип клиента</h2>
+				</li>
+
+				<li class="calc__block-item">
+					<h2 class="calc__name">Тип оплаты</h2>
 				</li>
 			</ul>
-
-			<ul class="dcalc__result"></ul>
 		</section>
 	</main>
 
 	<svg style="display: none;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
-	<symbol id="delete" viewBox="0 0 24 24"><path d="M9.856 5.143h4.286a2.143 2.143 0 1 0-4.286 0Zm-1.286 0a3.429 3.429 0 0 1 6.857 0h5.358a.643.643 0 0 1 0 1.286h-1.123l-1.043 12.517a3.643 3.643 0 0 1-3.63 3.34h-5.98a3.643 3.643 0 0 1-3.63-3.34L4.336 6.429H3.213a.643.643 0 1 1 0-1.286H8.57Zm2.143 4.929a.643.643 0 0 0-1.286 0v7.286a.643.643 0 0 0 1.286 0v-7.286Zm3.215-.643a.643.643 0 0 0-.643.643v7.286a.643.643 0 1 0 1.285 0v-7.286a.643.643 0 0 0-.643-.643Z"></path></symbol>
-</svg>
-	
-	<!-- <script src="https://www.google.com/recaptcha/api.js?render=" async></script> -->
+		<symbol id="delete" viewBox="0 0 24 24"><path d="M9.856 5.143h4.286a2.143 2.143 0 1 0-4.286 0Zm-1.286 0a3.429 3.429 0 0 1 6.857 0h5.358a.643.643 0 0 1 0 1.286h-1.123l-1.043 12.517a3.643 3.643 0 0 1-3.63 3.34h-5.98a3.643 3.643 0 0 1-3.63-3.34L4.336 6.429H3.213a.643.643 0 1 1 0-1.286H8.57Zm2.143 4.929a.643.643 0 0 0-1.286 0v7.286a.643.643 0 0 0 1.286 0v-7.286Zm3.215-.643a.643.643 0 0 0-.643.643v7.286a.643.643 0 1 0 1.285 0v-7.286a.643.643 0 0 0-.643-.643Z"></path></symbol>
+		<symbol id="no-product" viewBox="0 0 180 178"><path d="m118.044 0 61.7 30.85v68.798l-11.218-5.609V43.383l-44.873 22.436V88.43l-11.218 5.61V65.818L67.563 43.383v19.894l-11.219-5.609V30.85L118.044 0Zm0 56.09 15.513-7.8-40.578-23.224-18.493 9.29 43.558 21.735Zm27.607-13.76 15.951-7.974-43.558-21.823-13.058 6.573 40.665 23.225ZM101.217 99.65l-11.218 5.609v-.088l-33.654 16.827v39.877l33.654-16.915v12.621l-39.264 19.631L.254 151.883V92.637l50.481-25.24 50.482 25.24v7.011Zm-56.09 62.225v-39.877L11.471 105.17v39.789l33.654 16.915Zm5.608-49.605 32.34-16.126-32.34-16.214-32.34 16.214 32.34 16.126Zm50.482-.088 39.263-19.632 39.264 19.632v46.187L140.48 178l-39.263-19.632v-46.187Zm33.654 50.482v-26.731l-22.436-11.218v26.731l22.436 11.218Zm33.655-11.218v-26.731l-22.437 11.218v26.731l22.437-11.218Zm-28.046-25.241 21.122-10.605-21.122-10.517-21.121 10.517 21.121 10.605Z"></path></symbol>
+	</svg>
 	<script src="./assets/js/dcalc.min.js"></script>
 </body>
 </html>
