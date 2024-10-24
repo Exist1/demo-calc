@@ -360,7 +360,7 @@
 				<!-- END BLOCK: «Оголовки» -->
 
 				<!-- START BLOCK: «Доставка» -->
-				<li class="calc__block-item">
+				<li class="calc__block-item" data-block-id="delivery">
 					<h2 class="calc__name">Доставка</h2>
 					<button class="calc__burger" type="button" aria-label="Открыть список добавленных" disabled>
 						<span class="calc__burger-line" aria-hidden="true"></span>
@@ -371,7 +371,7 @@
 				<!-- END BLOCK: «Доставка» -->
 
 				<!-- START BLOCK: «Монтаж» -->
-				<li class="calc__block-item">
+				<li class="calc__block-item" data-block-id="installation">
 					<h2 class="calc__name">Монтаж</h2>
 					<button class="calc__burger" type="button" aria-label="Открыть список добавленных" disabled>
 						<span class="calc__burger-line" aria-hidden="true"></span>
@@ -382,7 +382,7 @@
 				<!-- END BLOCK: «Монтаж» -->
 
 				<!-- START BLOCK: «Дополнительные услуги» -->
-				<li class="calc__block-item">
+				<li class="calc__block-item" data-block-id="add-services">
 					<h2 class="calc__name">Дополнительные услуги</h2>
 					<button class="calc__burger" type="button" aria-label="Открыть список добавленных" disabled>
 						<span class="calc__burger-line" aria-hidden="true"></span>
@@ -432,24 +432,24 @@
 
 			<div class="calc__total">
 				<ul class="calc__total-list">
-					<li id="standard" class="calc__total-item" aria-label="Стандартные сваи">
+					<li id="standard" class="calc__total-item" aria-label="Стандартные сваи" style="display: none; visibility: hidden">
 						<p class="calc__total-text calc__total-text--count" data-add-text="Кол-во"><span>0</span></p>
 						<p class="calc__total-text calc__total-text--sum" data-add-text="Сумма"><span>0</span></p>
 					</li>
 
-					<li id="non-standard" class="calc__total-item" aria-label="Нестандартные сваи">
+					<li id="non-standard" class="calc__total-item" aria-label="Нестандартные сваи" style="display: none; visibility: hidden">
 						<p class="calc__total-text calc__total-text--count" data-add-text="Кол-во"><span>0</span></p>
 						<p class="calc__total-text calc__total-text--sum" data-add-text="Сумма"><span>0</span></p>
 					</li>
 
-					<li id="heads" class="calc__total-item" aria-label="Оголовки">
+					<li id="heads" class="calc__total-item" aria-label="Оголовки" style="display: none; visibility: hidden">
 						<p class="calc__total-text calc__total-text--count" data-add-text="Кол-во"><span>0</span></p>
 						<p class="calc__total-text calc__total-text--sum" data-add-text="Сумма"><span>0</span></p>
 					</li>
 
-					<li class="calc__total-item" aria-label="Доставка">Нет данных</li>
-					<li class="calc__total-item" aria-label="Монтаж">Нет данных</li>
-					<li class="calc__total-item" aria-label="Доп. услуги">Нет данных</li>
+					<li id="delivery" class="calc__total-item" aria-label="Доставка" style="display: none; visibility: hidden">Нет данных</li>
+					<li id="installation" class="calc__total-item" aria-label="Монтаж" style="display: none; visibility: hidden">Нет данных</li>
+					<li id="add-services" class="calc__total-item" aria-label="Доп. услуги" style="display: none; visibility: hidden">Нет данных</li>
 
 					<li id="type-client" class="calc__total-item" aria-label="Тип клиента">Нет данных</li>
 					<li id="payment-type" class="calc__total-item" aria-label="Тип оплаты">Нет данных</li>
